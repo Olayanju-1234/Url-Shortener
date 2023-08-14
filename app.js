@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDatabase = require('./config/database');
+const indexRouter = require('./routes/index');
+const urlRouter = require('./routes/url.route');
 
 const app = express();
 
@@ -7,6 +9,10 @@ const app = express();
 connectDatabase();
 
 app.use(express.json({ extended: false}));
+
+// Define Routes
+app.use('/', indexRouter);
+app.use('/api/url', urlRouter);
 
 
 app.listen(3000, () => {
