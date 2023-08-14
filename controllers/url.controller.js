@@ -7,7 +7,7 @@ const Url = require('../models/url.model');
 
 const shortenUrl = async (req, res) => {
     const { longUrl } = req.body;
-    const baseUrl = config.get('baseUrl');
+    const baseUrl = config.get('BASE_URL');
 
     if(!validUrl.isUri(baseUrl)) {
         return res.status(401).json('Invalid base url');
