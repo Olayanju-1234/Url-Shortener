@@ -4,6 +4,34 @@ const config = require('config');
 
 const Url = require('../models/url.model');
 
+/**
+ * @swagger
+ * /shorten:
+ *   post:
+ *     summary: Shorten a URL
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               longUrl:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Shortened URL
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Url'
+ *       401:
+ *         description: Invalid long URL or base URL
+ *       500:
+ *         description: Server error
+ */
+
+
 
 const shortenUrl = async (req, res) => {
     const { longUrl } = req.body;
